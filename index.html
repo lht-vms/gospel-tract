@@ -289,6 +289,24 @@
             opacity: 0.8;
         }
 
+        .language-toggle {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.75em;
+            color: #2a573e;
+            opacity: 0.6;
+        }
+
+        .language-toggle a {
+            color: #2a573e;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .language-toggle a:hover {
+            opacity: 0.8;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -351,9 +369,15 @@
 
     <div class="container">
         <header>
-            <h1>The Good News</h1>
-            <p class="subtitle">A message of hope, love, and eternal life</p>
+            <h1 data-en="The Good News" data-es="Las Buenas Nuevas">The Good News</h1>
+            <p class="subtitle" data-en="A message of hope, love, and eternal life" data-es="Un mensaje de esperanza, amor y vida eterna">A message of hope, love, and eternal life</p>
         </header>
+
+        <div class="language-toggle">
+            <a href="#" id="langToggle" onclick="toggleLanguage(); return false;">
+                <span id="langText">¿Hablas español? Haz clic aquí</span>
+            </a>
+        </div>
 
         <section>
             <h2>Created for Glory</h2>
@@ -481,6 +505,42 @@
 
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
+        });
+
+        // Language toggle
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            
+            // Update all elements with data-en and data-es attributes
+            document.querySelectorAll('[data-en][data-es]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + currentLang);
+            });
+
+            // Update elements with HTML content
+            document.querySelectorAll('[data-en-html][data-es-html]').forEach(el => {
+                el.innerHTML = el.getAttribute('data-' + currentLang + '-html');
+            });
+
+            // Update toggle link text
+            const langText = document.getElementById('langText');
+            if (currentLang === 'es') {
+                langText.textContent = 'Click here for English';
+            } else {
+                langText.textContent = '¿Hablas español? Haz clic aquí';
+            }
+
+            // Store preference
+            localStorage.setItem('preferredLanguage', currentLang);
+        }
+
+        // Check for saved language preference on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang === 'es') {
+                toggleLanguage();
+            }
         });
     </script>
 </body>
