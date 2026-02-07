@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+            background: linear-gradient(135deg, #f8faf8 0%, #ffffff 100%);
             color: #2d3436;
             line-height: 1.8;
             min-height: 100vh;
@@ -21,14 +21,30 @@
             overflow-x: hidden;
         }
 
-        /* Vine decorations */
+        /* Impressionist background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(ellipse at 20% 30%, rgba(42, 87, 62, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(42, 87, 62, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(42, 87, 62, 0.02) 0%, transparent 60%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Almond blossom inspired decorations */
         .vine-left, .vine-right {
             position: fixed;
-            width: 120px;
+            width: 150px;
             height: 100vh;
             background-repeat: repeat-y;
             background-size: contain;
-            opacity: 0.15;
+            opacity: 0.12;
             pointer-events: none;
             z-index: 0;
         }
@@ -36,13 +52,13 @@
         .vine-left {
             left: 0;
             top: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path d="M20 0 Q30 30 20 60 Q10 90 20 120 Q30 150 20 180 L20 200" stroke="%2385bb65" stroke-width="3" fill="none"/><circle cx="20" cy="30" r="8" fill="%23ffb3c6"/><circle cx="20" cy="90" r="8" fill="%23ffb3c6"/><circle cx="20" cy="150" r="8" fill="%23ffb3c6"/><path d="M15 30 Q10 25 5 30" stroke="%2385bb65" stroke-width="2" fill="none"/><path d="M15 90 Q10 85 5 90" stroke="%2385bb65" stroke-width="2" fill="none"/><path d="M15 150 Q10 145 5 150" stroke="%2385bb65" stroke-width="2" fill="none"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 400"><path d="M40 0 Q50 40 45 80 Q40 120 48 160 Q52 200 45 240 Q40 280 45 320 Q48 360 45 400" stroke="%232a573e" stroke-width="4" fill="none" opacity="0.6"/><path d="M40 60 Q30 50 20 55" stroke="%232a573e" stroke-width="2.5" fill="none" opacity="0.5"/><path d="M45 140 Q35 135 25 142" stroke="%232a573e" stroke-width="2.5" fill="none" opacity="0.5"/><path d="M48 220 Q38 215 28 222" stroke="%232a573e" stroke-width="2.5" fill="none" opacity="0.5"/><path d="M45 300 Q35 295 25 302" stroke="%232a573e" stroke-width="2.5" fill="none" opacity="0.5"/><ellipse cx="22" cy="55" rx="7" ry="10" fill="%23e8f4e8" opacity="0.7" transform="rotate(-20 22 55)"/><ellipse cx="27" cy="142" rx="7" ry="10" fill="%23e8f4e8" opacity="0.7" transform="rotate(15 27 142)"/><ellipse cx="30" cy="222" rx="7" ry="10" fill="%23e8f4e8" opacity="0.7" transform="rotate(-10 30 222)"/><ellipse cx="27" cy="302" rx="7" ry="10" fill="%23e8f4e8" opacity="0.7" transform="rotate(20 27 302)"/></svg>');
         }
 
         .vine-right {
             right: 0;
             top: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path d="M80 0 Q70 30 80 60 Q90 90 80 120 Q70 150 80 180 L80 200" stroke="%2385bb65" stroke-width="3" fill="none"/><circle cx="80" cy="30" r="8" fill="%23ffb3c6"/><circle cx="80" cy="90" r="8" fill="%23ffb3c6"/><circle cx="80" cy="150" r="8" fill="%23ffb3c6"/><path d="M85 30 Q90 25 95 30" stroke="%2385bb65" stroke-width="2" fill="none"/><path d="M85 90 Q90 85 95 90" stroke="%2385bb65" stroke-width="2" fill="none"/><path d="M85 150 Q90 145 95 150" stroke="%2385bb65" stroke-width="2" fill="none"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 400"><path d="M110 0 Q100 40 105 80 Q110 120 102 160 Q98 200 105 240 Q110 280 105 320 Q102 360 105 400" stroke="%232a573e" stroke-width="4" fill="none" opacity="0.6"/><path d="M110 60 Q120 50 130 55" stroke="%232a573e" stroke-width="2.5" fill="none" opacity="0.5"/><path d="M105 140 Q115 135 125 142" stroke="%232a573e" stroke-width="2.5" fill="none" opacity="0.5"/><path d="M102 220 Q112 215 122 222" stroke="%232a573e" stroke-width="2.5" fill="none" opacity="0.5"/><path d="M105 300 Q115 295 125 302" stroke="%232a573e" stroke-width="2.5" fill="none" opacity="0.5"/><ellipse cx="128" cy="55" rx="7" ry="10" fill="%23e8f4e8" opacity="0.7" transform="rotate(20 128 55)"/><ellipse cx="123" cy="142" rx="7" ry="10" fill="%23e8f4e8" opacity="0.7" transform="rotate(-15 123 142)"/><ellipse cx="120" cy="222" rx="7" ry="10" fill="%23e8f4e8" opacity="0.7" transform="rotate(10 120 222)"/><ellipse cx="123" cy="302" rx="7" ry="10" fill="%23e8f4e8" opacity="0.7" transform="rotate(-20 123 302)"/></svg>');
         }
 
         .container {
@@ -75,18 +91,20 @@
 
         .flower-divider {
             text-align: center;
-            font-size: 2em;
-            margin: 40px 0;
-            color: #ffb3c6;
+            font-size: 1.5em;
+            margin: 50px 0;
+            color: #2a573e;
+            opacity: 0.3;
+            letter-spacing: 20px;
         }
 
         section {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             padding: 40px;
             margin: 30px 0;
             border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-            border: 2px solid rgba(255, 179, 198, 0.2);
+            box-shadow: 0 8px 32px rgba(42, 87, 62, 0.08);
+            border: 2px solid rgba(42, 87, 62, 0.15);
             animation: slideUp 0.8s ease-out;
             animation-fill-mode: both;
         }
@@ -99,17 +117,9 @@
 
         h2 {
             font-size: 2em;
-            color: #85bb65;
+            color: #2a573e;
             margin-bottom: 20px;
             font-weight: 400;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h2:before {
-            content: "🌸";
-            font-size: 0.8em;
         }
 
         p {
@@ -119,9 +129,9 @@
         }
 
         .scripture {
-            background: rgba(255, 179, 198, 0.1);
+            background: rgba(42, 87, 62, 0.05);
             padding: 20px;
-            border-left: 4px solid #ffb3c6;
+            border-left: 4px solid #2a573e;
             font-style: italic;
             margin: 20px 0;
             border-radius: 10px;
@@ -132,27 +142,23 @@
             text-align: right;
             margin-top: 10px;
             font-size: 0.9em;
-            color: #636e72;
+            color: #2a573e;
         }
 
         .invitation {
-            background: linear-gradient(135deg, #ffb3c6 0%, #ff8fab 100%);
+            background: linear-gradient(135deg, #2a573e 0%, #3d6e52 100%);
             color: white;
             text-align: center;
             padding: 50px 40px;
             border-radius: 20px;
             margin-top: 50px;
-            box-shadow: 0 12px 40px rgba(255, 179, 198, 0.3);
+            box-shadow: 0 12px 40px rgba(42, 87, 62, 0.25);
         }
 
         .invitation h2 {
             color: white;
             font-size: 2.5em;
             margin-bottom: 30px;
-        }
-
-        .invitation h2:before {
-            content: "✨";
         }
 
         .invitation p {
@@ -168,10 +174,11 @@
             border-radius: 15px;
             margin-top: 30px;
             text-align: left;
+            border: 2px solid rgba(42, 87, 62, 0.1);
         }
 
         .prayer-box h3 {
-            color: #85bb65;
+            color: #2a573e;
             margin-bottom: 15px;
             font-size: 1.5em;
         }
@@ -185,8 +192,9 @@
         footer {
             text-align: center;
             padding: 40px;
-            color: #636e72;
+            color: #2a573e;
             font-size: 0.9em;
+            opacity: 0.7;
         }
 
         @keyframes fadeIn {
@@ -211,26 +219,6 @@
             }
         }
 
-        /* Floating flowers animation */
-        .floating-flower {
-            position: fixed;
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-            font-size: 2em;
-            opacity: 0.3;
-            z-index: 0;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        .flower-1 { top: 10%; left: 10%; animation-delay: 0s; }
-        .flower-2 { top: 30%; right: 15%; animation-delay: 1s; }
-        .flower-3 { top: 60%; left: 8%; animation-delay: 2s; }
-        .flower-4 { top: 80%; right: 12%; animation-delay: 3s; }
-
         @media (max-width: 768px) {
             .container {
                 padding: 40px 20px;
@@ -254,11 +242,6 @@
 <body>
     <div class="vine-left"></div>
     <div class="vine-right"></div>
-    
-    <div class="floating-flower flower-1">🌸</div>
-    <div class="floating-flower flower-2">🌺</div>
-    <div class="floating-flower flower-3">🌼</div>
-    <div class="floating-flower flower-4">🌷</div>
 
     <div class="container">
         <header>
@@ -275,7 +258,7 @@
             </div>
         </section>
 
-        <div class="flower-divider">✿ ❀ ✿</div>
+        <div class="flower-divider">• • •</div>
 
         <section>
             <h2>We Have Fallen Short</h2>
@@ -287,7 +270,7 @@
             <p>The consequence of sin is death—eternal separation from God. We cannot earn our way back through good deeds or religious efforts. The gap is too great.</p>
         </section>
 
-        <div class="flower-divider">✿ ❀ ✿</div>
+        <div class="flower-divider">• • •</div>
 
         <section>
             <h2>Jesus: The Living Vine</h2>
@@ -299,7 +282,7 @@
             <p>Jesus didn't just die—He rose again three days later, conquering death and proving His power over sin and the grave. He offers us life, abundant and eternal.</p>
         </section>
 
-        <div class="flower-divider">✿ ❀ ✿</div>
+        <div class="flower-divider">• • •</div>
 
         <section>
             <h2>His Amazing Love</h2>
@@ -311,7 +294,7 @@
             <p>This is grace: undeserved, unearned love poured out freely. Jesus invites you to receive this gift, not through your effort, but through faith in Him.</p>
         </section>
 
-        <div class="flower-divider">✿ ❀ ✿</div>
+        <div class="flower-divider">• • •</div>
 
         <section>
             <h2>Made Righteous</h2>
@@ -323,7 +306,7 @@
             <p>And this isn't just about the future—it changes everything now. You are given new life, a new heart, and the Holy Spirit to guide and empower you. You can experience God's presence, purpose, and peace today.</p>
         </section>
 
-        <div class="flower-divider">✿ ❀ ✿</div>
+        <div class="flower-divider">• • •</div>
 
         <section>
             <h2>Eternity with Him</h2>
@@ -347,15 +330,15 @@
 
             <p style="margin-top: 30px;">If you prayed this prayer, welcome to the family of God! Tell someone about your decision. Find a Bible-believing church. Read God's Word and talk to Him in prayer. He will never leave you.</p>
 
-            <div class="scripture" style="background: rgba(255, 255, 255, 0.3); border-color: white;">
+            <div class="scripture" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.4);">
                 "Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"
-                <cite style="color: white;">— 2 Corinthians 5:17</cite>
+                <cite style="color: rgba(255, 255, 255, 0.9);">— 2 Corinthians 5:17</cite>
             </div>
         </div>
 
         <footer>
             <p>May God bless you and keep you. May His face shine upon you.</p>
-            <p style="margin-top: 20px;">🌿 Abide in the Vine 🌿</p>
+            <p style="margin-top: 20px;">— Abide in the Vine —</p>
         </footer>
     </div>
 
