@@ -76,17 +76,33 @@
             position: relative;
         }
 
-        .header-art {
-            width: 100%;
-            max-width: 900px;
-            height: 300px;
-            margin: 0 auto 40px;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/1280px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg');
+        .art-section {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            height: 350px;
             background-size: cover;
             background-position: center;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(42, 87, 62, 0.2);
-            opacity: 0.9;
+            margin-top: 60px;
+            margin-bottom: 60px;
+            opacity: 0.35;
+        }
+
+        .art-section-1 {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/1920px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg');
+        }
+
+        .art-section-2 {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Claude_Monet_-_Water_Lilies_-_1916_-_National_Museum_of_Western_Art%2C_Tokyo.jpg/1920px-Claude_Monet_-_Water_Lilies_-_1916_-_National_Museum_of_Western_Art%2C_Tokyo.jpg');
+            height: 300px;
+        }
+
+        .art-section-3 {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Vincent_Willem_van_Gogh_-_Irises_-_Google_Art_Project.jpg/1920px-Vincent_Willem_van_Gogh_-_Irises_-_Google_Art_Project.jpg');
+            height: 320px;
         }
 
         h1 {
@@ -209,20 +225,6 @@
             color: #2a573e;
             font-size: 0.9em;
             opacity: 0.7;
-            position: relative;
-        }
-
-        .footer-art {
-            width: 100%;
-            max-width: 600px;
-            height: 200px;
-            margin: 40px auto 30px;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/1280px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg');
-            background-size: cover;
-            background-position: center 70%;
-            border-radius: 10px;
-            opacity: 0.6;
-            box-shadow: 0 4px 16px rgba(42, 87, 62, 0.15);
         }
 
         @keyframes fadeIn {
@@ -265,13 +267,18 @@
                 opacity: 0.08;
             }
 
-            .header-art {
-                height: 200px;
-                margin-bottom: 30px;
+            .art-section {
+                height: 250px;
+                margin-top: 40px;
+                margin-bottom: 40px;
             }
 
-            .footer-art {
-                height: 150px;
+            .art-section-2 {
+                height: 220px;
+            }
+
+            .art-section-3 {
+                height: 240px;
             }
         }
     </style>
@@ -282,10 +289,11 @@
 
     <div class="container">
         <header>
-            <div class="header-art"></div>
             <h1>The Good News</h1>
             <p class="subtitle">A message of hope, love, and eternal life</p>
         </header>
+
+        <div class="art-section art-section-1"></div>
 
         <section>
             <h2>Created for Glory</h2>
@@ -332,6 +340,8 @@
             <p>This is grace: undeserved, unearned love poured out freely. Jesus invites you to receive this gift, not through your effort, but through faith in Him.</p>
         </section>
 
+        <div class="art-section art-section-2"></div>
+
         <div class="flower-divider">• • •</div>
 
         <section>
@@ -356,6 +366,8 @@
             <p>This is the hope we have—not wishful thinking, but a certain promise from the God who cannot lie.</p>
         </section>
 
+        <div class="art-section art-section-3"></div>
+
         <div class="invitation">
             <h2>Receive This Gift Today</h2>
             <p>Jesus is inviting you right now. He's knocking at the door of your heart. Will you open it?</p>
@@ -375,7 +387,6 @@
         </div>
 
         <footer>
-            <div class="footer-art"></div>
             <p>May God bless you and keep you. May His face shine upon you.</p>
             <p style="margin-top: 20px;">— Abide in the Vine —</p>
         </footer>
