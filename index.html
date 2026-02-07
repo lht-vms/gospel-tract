@@ -74,35 +74,79 @@
             margin-bottom: 60px;
             animation: fadeIn 1s ease-in;
             position: relative;
+            padding: 80px 40px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/1920px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100vw;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-bottom: 60px;
         }
 
-        .art-section {
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            z-index: 0;
+        }
+
+        header h1,
+        header .subtitle {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-with-art {
             width: 100vw;
             position: relative;
             left: 50%;
             right: 50%;
             margin-left: -50vw;
             margin-right: -50vw;
-            height: 350px;
-            background-size: cover;
-            background-position: center;
+            padding: 60px 0;
             margin-top: 60px;
             margin-bottom: 60px;
-            opacity: 0.35;
+            background-size: cover;
+            background-position: center;
         }
 
-        .art-section-1 {
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/1920px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg');
+        .section-with-art::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 250, 248, 0.65);
+            z-index: 0;
         }
 
-        .art-section-2 {
+        .section-with-art .container-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-with-art section {
+            background: rgba(255, 255, 255, 0.75);
+            margin: 0;
+        }
+
+        .art-vine {
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/2560px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg');
-            height: 300px;
         }
 
-        .art-section-3 {
+        .art-eternity {
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Irises-Vincent_van_Gogh.jpg/2560px-Irises-Vincent_van_Gogh.jpg');
-            height: 320px;
         }
 
         h1 {
@@ -267,18 +311,18 @@
                 opacity: 0.08;
             }
 
-            .art-section {
-                height: 250px;
+            header {
+                padding: 60px 20px;
+            }
+
+            .section-with-art {
+                padding: 40px 0;
                 margin-top: 40px;
                 margin-bottom: 40px;
             }
 
-            .art-section-2 {
-                height: 220px;
-            }
-
-            .art-section-3 {
-                height: 240px;
+            .section-with-art .container-inner {
+                padding: 0 20px;
             }
         }
     </style>
@@ -292,8 +336,6 @@
             <h1>The Good News</h1>
             <p class="subtitle">A message of hope, love, and eternal life</p>
         </header>
-
-        <div class="art-section art-section-1"></div>
 
         <section>
             <h2>Created for Glory</h2>
@@ -318,15 +360,19 @@
 
         <div class="flower-divider">• • •</div>
 
-        <section>
-            <h2>Jesus: The Living Vine</h2>
-            <p>But God's love didn't stop there. In the greatest act of love in history, God sent His only Son, Jesus Christ, to bridge that gap. Jesus lived the perfect life we couldn't live, and then He willingly died on the cross, taking the punishment for our sins upon Himself.</p>
-            <div class="scripture">
-                "I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing."
-                <cite>— John 15:5</cite>
+        <div class="section-with-art art-vine">
+            <div class="container-inner">
+                <section>
+                    <h2>Jesus: The Living Vine</h2>
+                    <p>But God's love didn't stop there. In the greatest act of love in history, God sent His only Son, Jesus Christ, to bridge that gap. Jesus lived the perfect life we couldn't live, and then He willingly died on the cross, taking the punishment for our sins upon Himself.</p>
+                    <div class="scripture">
+                        "I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing."
+                        <cite>— John 15:5</cite>
+                    </div>
+                    <p>Jesus didn't just die—He rose again three days later, conquering death and proving His power over sin and the grave. He offers us life, abundant and eternal.</p>
+                </section>
             </div>
-            <p>Jesus didn't just die—He rose again three days later, conquering death and proving His power over sin and the grave. He offers us life, abundant and eternal.</p>
-        </section>
+        </div>
 
         <div class="flower-divider">• • •</div>
 
@@ -339,8 +385,6 @@
             </div>
             <p>This is grace: undeserved, unearned love poured out freely. Jesus invites you to receive this gift, not through your effort, but through faith in Him.</p>
         </section>
-
-        <div class="art-section art-section-2"></div>
 
         <div class="flower-divider">• • •</div>
 
@@ -356,17 +400,19 @@
 
         <div class="flower-divider">• • •</div>
 
-        <section>
-            <h2>Eternity with Him</h2>
-            <p>And the promise extends forever. When this life ends, those who trust in Jesus will spend eternity with Him in a place with no more pain, tears, or sorrow. A place of perfect joy, beauty, and love beyond imagination.</p>
-            <div class="scripture">
-                "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away."
-                <cite>— Revelation 21:4</cite>
+        <div class="section-with-art art-eternity">
+            <div class="container-inner">
+                <section>
+                    <h2>Eternity with Him</h2>
+                    <p>And the promise extends forever. When this life ends, those who trust in Jesus will spend eternity with Him in a place with no more pain, tears, or sorrow. A place of perfect joy, beauty, and love beyond imagination.</p>
+                    <div class="scripture">
+                        "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away."
+                        <cite>— Revelation 21:4</cite>
+                    </div>
+                    <p>This is the hope we have—not wishful thinking, but a certain promise from the God who cannot lie.</p>
+                </section>
             </div>
-            <p>This is the hope we have—not wishful thinking, but a certain promise from the God who cannot lie.</p>
-        </section>
-
-        <div class="art-section art-section-3"></div>
+        </div>
 
         <div class="invitation">
             <h2>Receive This Gift Today</h2>
