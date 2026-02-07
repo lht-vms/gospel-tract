@@ -73,6 +73,20 @@
             text-align: center;
             margin-bottom: 60px;
             animation: fadeIn 1s ease-in;
+            position: relative;
+        }
+
+        .header-art {
+            width: 100%;
+            max-width: 900px;
+            height: 300px;
+            margin: 0 auto 40px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/1280px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(42, 87, 62, 0.2);
+            opacity: 0.9;
         }
 
         h1 {
@@ -195,6 +209,20 @@
             color: #2a573e;
             font-size: 0.9em;
             opacity: 0.7;
+            position: relative;
+        }
+
+        .footer-art {
+            width: 100%;
+            max-width: 600px;
+            height: 200px;
+            margin: 40px auto 30px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/1280px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg');
+            background-size: cover;
+            background-position: center 70%;
+            border-radius: 10px;
+            opacity: 0.6;
+            box-shadow: 0 4px 16px rgba(42, 87, 62, 0.15);
         }
 
         @keyframes fadeIn {
@@ -236,6 +264,15 @@
                 width: 60px;
                 opacity: 0.08;
             }
+
+            .header-art {
+                height: 200px;
+                margin-bottom: 30px;
+            }
+
+            .footer-art {
+                height: 150px;
+            }
         }
     </style>
 </head>
@@ -245,6 +282,7 @@
 
     <div class="container">
         <header>
+            <div class="header-art"></div>
             <h1>The Good News</h1>
             <p class="subtitle">A message of hope, love, and eternal life</p>
         </header>
@@ -337,6 +375,7 @@
         </div>
 
         <footer>
+            <div class="footer-art"></div>
             <p>May God bless you and keep you. May His face shine upon you.</p>
             <p style="margin-top: 20px;">— Abide in the Vine —</p>
         </footer>
