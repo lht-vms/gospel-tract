@@ -289,22 +289,45 @@
             opacity: 0.8;
         }
 
-        .language-toggle {
+        .language-selector {
             text-align: center;
-            padding: 10px 0 5px 0;
-            font-size: 0.75em;
-            color: #2a573e;
-            opacity: 0.6;
+            padding: 15px 0;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        .language-toggle a {
+        .language-selector span {
             color: #2a573e;
-            text-decoration: underline;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        .lang-btn {
+            background: rgba(42, 87, 62, 0.1);
+            border: 2px solid rgba(42, 87, 62, 0.3);
+            color: #2a573e;
+            padding: 8px 20px;
+            border-radius: 25px;
             cursor: pointer;
+            font-family: 'EB Garamond', serif;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .language-toggle a:hover {
-            opacity: 0.8;
+        .lang-btn:hover {
+            background: rgba(42, 87, 62, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: #2a573e;
+            color: white;
+            border-color: #2a573e;
         }
 
         @keyframes fadeIn {
@@ -356,9 +379,14 @@
                 padding: 0 20px 40px 20px;
             }
 
-            .language-toggle {
-                padding: 5px 0 5px 0;
-                font-size: 0.7em;
+            .language-selector {
+                padding: 10px 0;
+                gap: 10px;
+            }
+
+            .lang-btn {
+                padding: 6px 15px;
+                font-size: 0.9em;
             }
 
             .section-with-art {
@@ -379,20 +407,21 @@
 
     <div class="container">
         <header>
-            <h1 data-en="The Good News" data-es="Las Buenas Nuevas">The Good News</h1>
-            <p class="subtitle" data-en="A message of hope, love, and eternal life" data-es="Un mensaje de esperanza, amor y vida eterna">A message of hope, love, and eternal life</p>
+            <h1 data-en="The Good News" data-es="Las Buenas Nuevas" data-it="La Buona Novella">The Good News</h1>
+            <p class="subtitle" data-en="A message of hope, love, and eternal life" data-es="Un mensaje de esperanza, amor y vida eterna" data-it="Un messaggio di speranza, amore e vita eterna">A message of hope, love, and eternal life</p>
         </header>
 
-        <div class="language-toggle">
-            <a href="#" id="langToggle" onclick="toggleLanguage(); return false;">
-                <span id="langText">¿Hablas español? Haz clic aquí</span>
-            </a>
+        <div class="language-selector">
+            <span data-en="Choose language:" data-es="Elige idioma:" data-it="Scegli la lingua:">Choose language:</span>
+            <button class="lang-btn active" onclick="setLanguage('en')" id="btn-en">English</button>
+            <button class="lang-btn" onclick="setLanguage('es')" id="btn-es">Español</button>
+            <button class="lang-btn" onclick="setLanguage('it')" id="btn-it">Italiano</button>
         </div>
 
         <section>
-            <h2 data-en="Created for Glory" data-es="Creados para la Gloria">Created for Glory</h2>
-            <p data-en="God created you with immense love and purpose. You were made in His image, designed to live in perfect relationship with Him—experiencing His love, joy, and peace forever." data-es="Dios te creó con inmenso amor y propósito. Fuiste hecho a Su imagen, diseñado para vivir en perfecta relación con Él—experimentando Su amor, gozo y paz para siempre.">God created you with immense love and purpose. You were made in His image, designed to live in perfect relationship with Him—experiencing His love, joy, and peace forever.</p>
-            <div class="scripture" data-en-html='"So God created mankind in his own image, in the image of God he created them."<cite>— Genesis 1:27</cite>' data-es-html='"Y creó Dios al hombre a su imagen, a imagen de Dios lo creó."<cite>— Génesis 1:27</cite>'>
+            <h2 data-en="Created for Glory" data-es="Creados para la Gloria" data-it="Creati per la Gloria">Created for Glory</h2>
+            <p data-en="God created you with immense love and purpose. You were made in His image, designed to live in perfect relationship with Him—experiencing His love, joy, and peace forever." data-es="Dios te creó con inmenso amor y propósito. Fuiste hecho a Su imagen, diseñado para vivir en perfecta relación con Él—experimentando Su amor, gozo y paz para siempre." data-it="Dio ti ha creato con immenso amore e scopo. Sei stato fatto a Sua immagine, progettato per vivere in perfetta relazione con Lui—sperimentando il Suo amore, gioia e pace per sempre.">God created you with immense love and purpose. You were made in His image, designed to live in perfect relationship with Him—experiencing His love, joy, and peace forever.</p>
+            <div class="scripture" data-en-html='"So God created mankind in his own image, in the image of God he created them."<cite>— Genesis 1:27</cite>' data-es-html='"Y creó Dios al hombre a su imagen, a imagen de Dios lo creó."<cite>— Génesis 1:27</cite>' data-it-html='"Dio creò l&#39;uomo a sua immagine; a immagine di Dio lo creò."<cite>— Genesi 1:27</cite>'>
                 "So God created mankind in his own image, in the image of God he created them."
                 <cite>— Genesis 1:27</cite>
             </div>
@@ -401,13 +430,13 @@
         <div class="flower-divider">• • •</div>
 
         <section>
-            <h2 data-en="We Have Fallen Short" data-es="Hemos Fallado">We Have Fallen Short</h2>
-            <p data-en="Because of our own free will, sin entered the world, and we all have fallen short of God's perfect standard. We've chosen our own way instead of His. We've acted in selfishness, pride, and rebellion. This separation from God is not just about mistakes—it's about a broken relationship that we cannot fix on our own." data-es="Por nuestro propio libre albedrío, el pecado entró al mundo, y todos hemos fallado al estándar perfecto de Dios. Hemos elegido nuestro propio camino en lugar del Suyo. Hemos actuado con egoísmo, orgullo y rebeldía. Esta separación de Dios no se trata solo de errores—se trata de una relación rota que no podemos arreglar por nuestra cuenta.">Because of our own free will, sin entered the world, and we all have fallen short of God's perfect standard. We've chosen our own way instead of His. We've acted in selfishness, pride, and rebellion. This separation from God is not just about mistakes—it's about a broken relationship that we cannot fix on our own.</p>
-            <div class="scripture" data-en-html='"For all have sinned and fall short of the glory of God."<cite>— Romans 3:23</cite>' data-es-html='"por cuanto todos pecaron, y están destituidos de la gloria de Dios."<cite>— Romanos 3:23</cite>'>
+            <h2 data-en="We Have Fallen Short" data-es="Hemos Fallado" data-it="Siamo Caduti">We Have Fallen Short</h2>
+            <p data-en="Because of our own free will, sin entered the world, and we all have fallen short of God's perfect standard. We've chosen our own way instead of His. We've acted in selfishness, pride, and rebellion. This separation from God is not just about mistakes—it's about a broken relationship that we cannot fix on our own." data-es="Por nuestro propio libre albedrío, el pecado entró al mundo, y todos hemos fallado al estándar perfecto de Dios. Hemos elegido nuestro propio camino en lugar del Suyo. Hemos actuado con egoísmo, orgullo y rebeldía. Esta separación de Dios no se trata solo de errores—se trata de una relación rota que no podemos arreglar por nuestra cuenta." data-it="A causa del nostro libero arbitrio, il peccato è entrato nel mondo, e tutti siamo venuti meno allo standard perfetto di Dio. Abbiamo scelto la nostra via invece della Sua. Abbiamo agito con egoismo, orgoglio e ribellione. Questa separazione da Dio non riguarda solo gli errori—riguarda una relazione spezzata che non possiamo riparare da soli.">Because of our own free will, sin entered the world, and we all have fallen short of God's perfect standard. We've chosen our own way instead of His. We've acted in selfishness, pride, and rebellion. This separation from God is not just about mistakes—it's about a broken relationship that we cannot fix on our own.</p>
+            <div class="scripture" data-en-html='"For all have sinned and fall short of the glory of God."<cite>— Romans 3:23</cite>' data-es-html='"por cuanto todos pecaron, y están destituidos de la gloria de Dios."<cite>— Romanos 3:23</cite>' data-it-html='"tutti hanno peccato e sono privi della gloria di Dio."<cite>— Romani 3:23</cite>'>
                 "For all have sinned and fall short of the glory of God."
                 <cite>— Romans 3:23</cite>
             </div>
-            <p data-en="The consequence of sin is death—eternal separation from God. We cannot earn our way back through good deeds or religious efforts. Our constant sin has created a gap too great." data-es="La consecuencia del pecado es la muerte—separación eterna de Dios. No podemos ganarnos el regreso a través de buenas obras o esfuerzos religiosos. Nuestro pecado constante ha creado una brecha demasiado grande.">The consequence of sin is death—eternal separation from God. We cannot earn our way back through good deeds or religious efforts. Our constant sin has created a gap too great.</p>
+            <p data-en="The consequence of sin is death—eternal separation from God. We cannot earn our way back through good deeds or religious efforts. Our constant sin has created a gap too great." data-es="La consecuencia del pecado es la muerte—separación eterna de Dios. No podemos ganarnos el regreso a través de buenas obras o esfuerzos religiosos. Nuestro pecado constante ha creado una brecha demasiado grande." data-it="La conseguenza del peccato è la morte—separazione eterna da Dio. Non possiamo guadagnarci il ritorno attraverso buone opere o sforzi religiosi. Il nostro peccato costante ha creato un divario troppo grande.">The consequence of sin is death—eternal separation from God. We cannot earn our way back through good deeds or religious efforts. Our constant sin has created a gap too great.</p>
         </section>
 
         <div class="flower-divider">• • •</div>
@@ -415,13 +444,13 @@
         <div class="section-with-art art-vine">
             <div class="container-inner">
                 <section>
-                    <h2 data-en="Jesus: The Living Vine" data-es="Jesús: La Vid Viviente">Jesus: The Living Vine</h2>
-                    <p data-en="But God's love didn't stop there: He loved us more than the weight of our sin. In the greatest act of love in history, God sent His only Son, Jesus Christ, to bridge that gap. Jesus lived the perfect life we couldn't live, one without sin, and then He willingly died on the cross, taking the punishment for our sins upon Himself." data-es="Pero el amor de Dios no se detuvo ahí: Él nos amó más que el peso de nuestro pecado. En el mayor acto de amor de la historia, Dios envió a Su único Hijo, Jesucristo, para cerrar esa brecha. Jesús vivió la vida perfecta que nosotros no podíamos vivir, una sin pecado, y luego murió voluntariamente en la cruz, tomando el castigo por nuestros pecados sobre Sí mismo.">But God's love didn't stop there: He loved us more than the weight of our sin. In the greatest act of love in history, God sent His only Son, Jesus Christ, to bridge that gap. Jesus lived the perfect life we couldn't live, one without sin, and then He willingly died on the cross, taking the punishment for our sins upon Himself.</p>
-                    <div class="scripture" data-en-html='"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."<cite>— John 3:16</cite>' data-es-html='"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna."<cite>— Juan 3:16</cite>'>
+                    <h2 data-en="Jesus: The Living Vine" data-es="Jesús: La Vid Viviente" data-it="Gesù: La Vite Vivente">Jesus: The Living Vine</h2>
+                    <p data-en="But God's love didn't stop there: He loved us more than the weight of our sin. In the greatest act of love in history, God sent His only Son, Jesus Christ, to bridge that gap. Jesus lived the perfect life we couldn't live, one without sin, and then He willingly died on the cross, taking the punishment for our sins upon Himself." data-es="Pero el amor de Dios no se detuvo ahí: Él nos amó más que el peso de nuestro pecado. En el mayor acto de amor de la historia, Dios envió a Su único Hijo, Jesucristo, para cerrar esa brecha. Jesús vivió la vida perfecta que nosotros no podíamos vivir, una sin pecado, y luego murió voluntariamente en la cruz, tomando el castigo por nuestros pecados sobre Sí mismo." data-it="Ma l'amore di Dio non si è fermato lì: Ci ha amati più del peso del nostro peccato. Nel più grande atto d'amore della storia, Dio ha mandato Suo Figlio unigenito, Gesù Cristo, per colmare quel divario. Gesù ha vissuto la vita perfetta che noi non potevamo vivere, una senza peccato, e poi è morto volontariamente sulla croce, prendendo su di Sé la punizione per i nostri peccati.">But God's love didn't stop there: He loved us more than the weight of our sin. In the greatest act of love in history, God sent His only Son, Jesus Christ, to bridge that gap. Jesus lived the perfect life we couldn't live, one without sin, and then He willingly died on the cross, taking the punishment for our sins upon Himself.</p>
+                    <div class="scripture" data-en-html='"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."<cite>— John 3:16</cite>' data-es-html='"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna."<cite>— Juan 3:16</cite>' data-it-html='"Perché Dio ha tanto amato il mondo, che ha dato il suo unigenito Figlio, affinché chiunque crede in lui non perisca, ma abbia vita eterna."<cite>— Giovanni 3:16</cite>'>
                         "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."
                         <cite>— John 3:16</cite>
                     </div>
-                    <p data-en="Jesus didn't just die—He rose again three days later, conquering death and proving His power over sin and the grave. Because He paid for our sins and defeated death, He offers us—all of us—eternal life." data-es="Jesús no solo murió—resucitó tres días después, conquistando la muerte y demostrando Su poder sobre el pecado y la tumba. Porque Él pagó por nuestros pecados y venció la muerte, nos ofrece—a todos nosotros—la vida eterna.">Jesus didn't just die—He rose again three days later, conquering death and proving His power over sin and the grave. Because He paid for our sins and defeated death, He offers us—all of us—eternal life.</p>
+                    <p data-en="Jesus didn't just die—He rose again three days later, conquering death and proving His power over sin and the grave. Because He paid for our sins and defeated death, He offers us—all of us—eternal life." data-es="Jesús no solo murió—resucitó tres días después, conquistando la muerte y demostrando Su poder sobre el pecado y la tumba. Porque Él pagó por nuestros pecados y venció la muerte, nos ofrece—a todos nosotros—la vida eterna." data-it="Gesù non è solo morto—è risorto tre giorni dopo, conquistando la morte e dimostrando il Suo potere sul peccato e sulla tomba. Poiché ha pagato per i nostri peccati e sconfitto la morte, ci offre—a tutti noi—la vita eterna.">Jesus didn't just die—He rose again three days later, conquering death and proving His power over sin and the grave. Because He paid for our sins and defeated death, He offers us—all of us—eternal life.</p>
                 </section>
             </div>
         </div>
@@ -429,14 +458,14 @@
         <div class="flower-divider">• • •</div>
 
         <section>
-            <h2 data-en="His Amazing Love" data-es="Su Amor Asombroso">His Amazing Love</h2>
-            <p data-en="Why would God do this? Because He loves you deeply and personally. Not because you earned it or deserve it, but because love is who He is. He knows everything about you—your joys, your pain, your regrets—and He still chose to die for you." data-es="¿Por qué Dios haría esto? Porque te ama profunda y personalmente. No porque lo hayas ganado o lo merezcas, sino porque el amor es quien Él es. Él sabe todo sobre ti—tus alegrías, tu dolor, tus arrepentimientos—y aún así eligió morir por ti.">Why would God do this? Because He loves you deeply and personally. Not because you earned it or deserve it, but because love is who He is. He knows everything about you—your joys, your pain, your regrets—and He still chose to die for you.</p>
-            <div class="scripture" data-en-html='"But God demonstrates his own love for us in this: While we were still sinners, Christ died for us."<cite>— Romans 5:8</cite>' data-es-html='"Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros."<cite>— Romanos 5:8</cite>'>
+            <h2 data-en="His Amazing Love" data-es="Su Amor Asombroso" data-it="Il Suo Amore Straordinario">His Amazing Love</h2>
+            <p data-en="Why would God do this? Because He loves you deeply and personally. Not because you earned it or deserve it, but because love is who He is. He knows everything about you—your joys, your pain, your regrets—and He still chose to die for you." data-es="¿Por qué Dios haría esto? Porque te ama profunda y personalmente. No porque lo hayas ganado o lo merezcas, sino porque el amor es quien Él es. Él sabe todo sobre ti—tus alegrías, tu dolor, tus arrepentimientos—y aún así eligió morir por ti." data-it="Perché Dio farebbe questo? Perché ti ama profondamente e personalmente. Non perché te lo sei guadagnato o te lo meriti, ma perché l'amore è ciò che Lui è. Conosce tutto di te—le tue gioie, il tuo dolore, i tuoi rimpianti—e ha comunque scelto di morire per te.">Why would God do this? Because He loves you deeply and personally. Not because you earned it or deserve it, but because love is who He is. He knows everything about you—your joys, your pain, your regrets—and He still chose to die for you.</p>
+            <div class="scripture" data-en-html='"But God demonstrates his own love for us in this: While we were still sinners, Christ died for us."<cite>— Romans 5:8</cite>' data-es-html='"Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros."<cite>— Romanos 5:8</cite>' data-it-html='"Dio invece mostra la grandezza del proprio amore per noi in questo: che, mentre eravamo ancora peccatori, Cristo è morto per noi."<cite>— Romani 5:8</cite>'>
                 "But God demonstrates his own love for us in this: While we were still sinners, Christ died for us."
                 <cite>— Romans 5:8</cite>
             </div>
-            <p data-en="This is grace: undeserved, unearned love poured out freely. Jesus invites you to receive this gift, not through your effort, but through faith in Him." data-es="Esto es gracia: amor inmerecido, no ganado, derramado libremente. Jesús te invita a recibir este regalo, no a través de tu esfuerzo, sino a través de la fe en Él.">This is grace: undeserved, unearned love poured out freely. Jesus invites you to receive this gift, not through your effort, but through faith in Him.</p>
-            <div class="scripture" data-en-html='"For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast."<cite>— Ephesians 2:8-9</cite>' data-es-html='"Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios; no por obras, para que nadie se gloríe."<cite>— Efesios 2:8-9</cite>'>
+            <p data-en="This is grace: undeserved, unearned love poured out freely. Jesus invites you to receive this gift, not through your effort, but through faith in Him." data-es="Esto es gracia: amor inmerecido, no ganado, derramado libremente. Jesús te invita a recibir este regalo, no a través de tu esfuerzo, sino a través de la fe en Él." data-it="Questa è grazia: amore immeritato, non guadagnato, versato liberamente. Gesù ti invita a ricevere questo dono, non attraverso il tuo sforzo, ma attraverso la fede in Lui.">This is grace: undeserved, unearned love poured out freely. Jesus invites you to receive this gift, not through your effort, but through faith in Him.</p>
+            <div class="scripture" data-en-html='"For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast."<cite>— Ephesians 2:8-9</cite>' data-es-html='"Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios; no por obras, para que nadie se gloríe."<cite>— Efesios 2:8-9</cite>' data-it-html='"Infatti è per grazia che siete stati salvati, mediante la fede; e ciò non viene da voi; è il dono di Dio. Non è in virtù di opere affinché nessuno se ne vanti."<cite>— Efesini 2:8-9</cite>'>
                 "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast."
                 <cite>— Ephesians 2:8-9</cite>
             </div>
@@ -445,13 +474,13 @@
         <div class="flower-divider">• • •</div>
 
         <section>
-            <h2 data-en="Made Righteous" data-es="Hechos Justos">Made Righteous</h2>
-            <p data-en="When you trust in Jesus, something miraculous happens. God sees you not as you are, but as Jesus is—perfectly righteous. Your sins are forgiven, washed clean. You become His beloved child—a child of God!" data-es="Cuando confías en Jesús, algo milagroso sucede. Dios te ve no como eres, sino como Jesús es—perfectamente justo. Tus pecados son perdonados, lavados. Te conviertes en Su hijo amado—¡un hijo de Dios!">When you trust in Jesus, something miraculous happens. God sees you not as you are, but as Jesus is—perfectly righteous. Your sins are forgiven, washed clean. You become His beloved child—a child of God!</p>
-            <div class="scripture" data-en-html='"God made him who had no sin to be sin for us, so that in him we might become the righteousness of God."<cite>— 2 Corinthians 5:21</cite>' data-es-html='"Al que no conoció pecado, por nosotros lo hizo pecado, para que nosotros fuésemos hechos justicia de Dios en él."<cite>— 2 Corintios 5:21</cite>'>
+            <h2 data-en="Made Righteous" data-es="Hechos Justos" data-it="Resi Giusti">Made Righteous</h2>
+            <p data-en="When you trust in Jesus, something miraculous happens. God sees you not as you are, but as Jesus is—perfectly righteous. Your sins are forgiven, washed clean. You become His beloved child—a child of God!" data-es="Cuando confías en Jesús, algo milagroso sucede. Dios te ve no como eres, sino como Jesús es—perfectamente justo. Tus pecados son perdonados, lavados. Te conviertes en Su hijo amado—¡un hijo de Dios!" data-it="Quando confidi in Gesù, accade qualcosa di miracoloso. Dio ti vede non come sei, ma come Gesù è—perfettamente giusto. I tuoi peccati sono perdonati, lavati. Diventi il Suo figlio amato—un figlio di Dio!">When you trust in Jesus, something miraculous happens. God sees you not as you are, but as Jesus is—perfectly righteous. Your sins are forgiven, washed clean. You become His beloved child—a child of God!</p>
+            <div class="scripture" data-en-html='"God made him who had no sin to be sin for us, so that in him we might become the righteousness of God."<cite>— 2 Corinthians 5:21</cite>' data-es-html='"Al que no conoció pecado, por nosotros lo hizo pecado, para que nosotros fuésemos hechos justicia de Dios en él."<cite>— 2 Corintios 5:21</cite>' data-it-html='"Colui che non ha conosciuto peccato, egli lo ha fatto diventare peccato per noi, affinché noi diventassimo giustizia di Dio in lui."<cite>— 2 Corinzi 5:21</cite>'>
                 "God made him who had no sin to be sin for us, so that in him we might become the righteousness of God."
                 <cite>— 2 Corinthians 5:21</cite>
             </div>
-            <p data-en="And this isn't just about the future—it changes everything now. You are given new life, a new heart, and the Holy Spirit to guide and empower you. You can experience God's presence, purpose, and peace today." data-es="Y esto no se trata solo del futuro—lo cambia todo ahora. Se te da nueva vida, un nuevo corazón, y el Espíritu Santo para guiarte y empoderarte. Puedes experimentar la presencia, el propósito y la paz de Dios hoy.">And this isn't just about the future—it changes everything now. You are given new life, a new heart, and the Holy Spirit to guide and empower you. You can experience God's presence, purpose, and peace today.</p>
+            <p data-en="And this isn't just about the future—it changes everything now. You are given new life, a new heart, and the Holy Spirit to guide and empower you. You can experience God's presence, purpose, and peace today." data-es="Y esto no se trata solo del futuro—lo cambia todo ahora. Se te da nueva vida, un nuevo corazón, y el Espíritu Santo para guiarte y empoderarte. Puedes experimentar la presencia, el propósito y la paz de Dios hoy." data-it="E questo non riguarda solo il futuro—cambia tutto ora. Ti viene data nuova vita, un nuovo cuore, e lo Spirito Santo per guidarti e darti potere. Puoi sperimentare la presenza, lo scopo e la pace di Dio oggi.">And this isn't just about the future—it changes everything now. You are given new life, a new heart, and the Holy Spirit to guide and empower you. You can experience God's presence, purpose, and peace today.</p>
         </section>
 
         <div class="flower-divider">• • •</div>
@@ -459,46 +488,46 @@
         <div class="section-with-art art-eternity">
             <div class="container-inner">
                 <section>
-                    <h2 data-en="Eternity with Him" data-es="Eternidad con Él">Eternity with Him</h2>
-                    <p data-en="That promise? It extends forever. When this life ends, those who trust in Jesus will spend eternity with Him in a place with no more pain, tears, or sorrow. A place of perfect joy, beauty, and love beyond imagination." data-es="¿Esa promesa? Se extiende para siempre. Cuando esta vida termine, aquellos que confían en Jesús pasarán la eternidad con Él en un lugar sin más dolor, lágrimas ni tristeza. Un lugar de gozo perfecto, belleza y amor más allá de la imaginación.">That promise? It extends forever. When this life ends, those who trust in Jesus will spend eternity with Him in a place with no more pain, tears, or sorrow. A place of perfect joy, beauty, and love beyond imagination.</p>
-                    <div class="scripture" data-en-html='"He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away."<cite>— Revelation 21:4</cite>' data-es-html='"Enjugará Dios toda lágrima de los ojos de ellos; y ya no habrá muerte, ni habrá más llanto, ni clamor, ni dolor; porque las primeras cosas pasaron."<cite>— Apocalipsis 21:4</cite>'>
+                    <h2 data-en="Eternity with Him" data-es="Eternidad con Él" data-it="Eternità con Lui">Eternity with Him</h2>
+                    <p data-en="That promise? It extends forever. When this life ends, those who trust in Jesus will spend eternity with Him in a place with no more pain, tears, or sorrow. A place of perfect joy, beauty, and love beyond imagination." data-es="¿Esa promesa? Se extiende para siempre. Cuando esta vida termine, aquellos que confían en Jesús pasarán la eternidad con Él en un lugar sin más dolor, lágrimas ni tristeza. Un lugar de gozo perfecto, belleza y amor más allá de la imaginación." data-it="Quella promessa? Si estende per sempre. Quando questa vita finisce, coloro che confidano in Gesù trascorreranno l'eternità con Lui in un luogo senza più dolore, lacrime o tristezza. Un luogo di gioia perfetta, bellezza e amore oltre ogni immaginazione.">That promise? It extends forever. When this life ends, those who trust in Jesus will spend eternity with Him in a place with no more pain, tears, or sorrow. A place of perfect joy, beauty, and love beyond imagination.</p>
+                    <div class="scripture" data-en-html='"He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away."<cite>— Revelation 21:4</cite>' data-es-html='"Enjugará Dios toda lágrima de los ojos de ellos; y ya no habrá muerte, ni habrá más llanto, ni clamor, ni dolor; porque las primeras cosas pasaron."<cite>— Apocalipsis 21:4</cite>' data-it-html='"Egli asciugherà ogni lacrima dai loro occhi e non ci sarà più la morte, né cordoglio, né grido, né dolore, perché le cose di prima sono passate."<cite>— Apocalisse 21:4</cite>'>
                         "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away."
                         <cite>— Revelation 21:4</cite>
                     </div>
-                    <p data-en="This is the hope we have—a certain promise from the God who cannot lie." data-es="Esta es la esperanza que tenemos—una promesa segura del Dios que no puede mentir.">This is the hope we have—a certain promise from the God who cannot lie.</p>
+                    <p data-en="This is the hope we have—a certain promise from the God who cannot lie." data-es="Esta es la esperanza que tenemos—una promesa segura del Dios que no puede mentir." data-it="Questa è la speranza che abbiamo—una promessa certa del Dio che non può mentire.">This is the hope we have—a certain promise from the God who cannot lie.</p>
                 </section>
             </div>
         </div>
 
         <div class="invitation">
-            <h2 data-en="Receive This Gift Today" data-es="Recibe Este Regalo Hoy">Receive This Gift Today</h2>
-            <p data-en="Jesus is inviting you right now. He's knocking at the door of your heart. Will you open it?" data-es="Jesús te está invitando ahora mismo. Está tocando a la puerta de tu corazón. ¿La abrirás?">Jesus is inviting you right now. He's knocking at the door of your heart. Will you open it?</p>
-            <p data-en="Receiving Jesus is simple—it's not about reciting the perfect words, but about a sincere heart turning to Him in faith." data-es="Recibir a Jesús es simple—no se trata de recitar las palabras perfectas, sino de un corazón sincero volviéndose a Él con fe.">Receiving Jesus is simple—it's not about reciting the perfect words, but about a sincere heart turning to Him in faith.</p>
+            <h2 data-en="Receive This Gift Today" data-es="Recibe Este Regalo Hoy" data-it="Ricevi Questo Dono Oggi">Receive This Gift Today</h2>
+            <p data-en="Jesus is inviting you right now. He's knocking at the door of your heart. Will you open it?" data-es="Jesús te está invitando ahora mismo. Está tocando a la puerta de tu corazón. ¿La abrirás?" data-it="Gesù ti sta invitando proprio ora. Sta bussando alla porta del tuo cuore. La aprirai?">Jesus is inviting you right now. He's knocking at the door of your heart. Will you open it?</p>
+            <p data-en="Receiving Jesus is simple—it's not about reciting the perfect words, but about a sincere heart turning to Him in faith." data-es="Recibir a Jesús es simple—no se trata de recitar las palabras perfectas, sino de un corazón sincero volviéndose a Él con fe." data-it="Ricevere Gesù è semplice—non si tratta di recitare le parole perfette, ma di un cuore sincero che si rivolge a Lui con fede.">Receiving Jesus is simple—it's not about reciting the perfect words, but about a sincere heart turning to Him in faith.</p>
             
             <div class="prayer-box">
-                <h3 data-en="A Prayer to Begin:" data-es="Una Oración para Comenzar:">A Prayer to Begin:</h3>
-                <p data-en-html='<em>"Jesus, I recognize that I am a sinner and have fallen short of Your glory. I believe You died on the cross for my sins and rose from the dead. I turn from my old life and ask You to come into my heart. Forgive me, change me, and make me new. I trust You as my Lord and Savior. Thank You for Your amazing love and the gift of eternal life. Amen."</em>' data-es-html='<em>"Jesús, reconozco que soy un pecador y he fallado a Tu gloria. Creo que moriste en la cruz por mis pecados y resucitaste de entre los muertos. Me aparto de mi vida antigua y te pido que entres en mi corazón. Perdóname, cámbiame y hazme nuevo. Confío en Ti como mi Señor y Salvador. Gracias por Tu amor asombroso y el regalo de la vida eterna. Amén."</em>'><em>"Jesus, I recognize that I am a sinner and have fallen short of Your glory. I believe You died on the cross for my sins and rose from the dead. I turn from my old life and ask You to come into my heart. Forgive me, change me, and make me new. I trust You as my Lord and Savior. Thank You for Your amazing love and the gift of eternal life. Amen."</em></p>
+                <h3 data-en="A Prayer to Begin:" data-es="Una Oración para Comenzar:" data-it="Una Preghiera per Iniziare:">A Prayer to Begin:</h3>
+                <p data-en-html='<em>"Jesus, I recognize that I am a sinner and have fallen short of Your glory. I believe You died on the cross for my sins and rose from the dead. I turn from my old life and ask You to come into my heart. Forgive me, change me, and make me new. I trust You as my Lord and Savior. Thank You for Your amazing love and the gift of eternal life. Amen."</em>' data-es-html='<em>"Jesús, reconozco que soy un pecador y he fallado a Tu gloria. Creo que moriste en la cruz por mis pecados y resucitaste de entre los muertos. Me aparto de mi vida antigua y te pido que entres en mi corazón. Perdóname, cámbiame y hazme nuevo. Confío en Ti como mi Señor y Salvador. Gracias por Tu amor asombroso y el regalo de la vida eterna. Amén."</em>' data-it-html='<em>"Gesù, riconosco di essere un peccatore e di essere venuto meno alla Tua gloria. Credo che Tu sia morto sulla croce per i miei peccati e sia risorto dai morti. Mi allontano dalla mia vecchia vita e Ti chiedo di entrare nel mio cuore. Perdonami, cambiami e rendimi nuovo. Confido in Te come mio Signore e Salvatore. Grazie per il Tuo amore straordinario e il dono della vita eterna. Amen."</em>'><em>"Jesus, I recognize that I am a sinner and have fallen short of Your glory. I believe You died on the cross for my sins and rose from the dead. I turn from my old life and ask You to come into my heart. Forgive me, change me, and make me new. I trust You as my Lord and Savior. Thank You for Your amazing love and the gift of eternal life. Amen."</em></p>
             </div>
 
-            <p style="margin-top: 30px;" data-en="If you prayed this prayer, welcome to the family of God! Begin by finding a community of Christians that follow Scripture and can help guide you, and start hearing from God today—by reading His Word, the Bible, and speaking with Him through prayer." data-es="Si hiciste esta oración, ¡bienvenido a la familia de Dios! Comienza buscando una comunidad de cristianos que sigan las Escrituras y puedan ayudarte a guiarte, y empieza a escuchar de Dios hoy—leyendo Su Palabra, la Biblia, y hablando con Él a través de la oración.">If you prayed this prayer, welcome to the family of God! Begin by finding a community of Christians that follow Scripture and can help guide you, and start hearing from God today—by reading His Word, the Bible, and speaking with Him through prayer.</p>
+            <p style="margin-top: 30px;" data-en="If you prayed this prayer, welcome to the family of God! Begin by finding a community of Christians that follow Scripture and can help guide you, and start hearing from God today—by reading His Word, the Bible, and speaking with Him through prayer." data-es="Si hiciste esta oración, ¡bienvenido a la familia de Dios! Comienza buscando una comunidad de cristianos que sigan las Escrituras y puedan ayudarte a guiarte, y empieza a escuchar de Dios hoy—leyendo Su Palabra, la Biblia, y hablando con Él a través de la oración." data-it="Se hai fatto questa preghiera, benvenuto nella famiglia di Dio! Inizia cercando una comunità di cristiani che seguono le Scritture e possono aiutarti a guidarti, e inizia ad ascoltare Dio oggi—leggendo la Sua Parola, la Bibbia, e parlando con Lui attraverso la preghiera.">If you prayed this prayer, welcome to the family of God! Begin by finding a community of Christians that follow Scripture and can help guide you, and start hearing from God today—by reading His Word, the Bible, and speaking with Him through prayer.</p>
 
-            <div class="scripture" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.4);" data-en-html='"Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"<cite style="color: rgba(255, 255, 255, 0.9);">— 2 Corinthians 5:17</cite>' data-es-html='"De modo que si alguno está en Cristo, nueva criatura es; las cosas viejas pasaron; he aquí todas son hechas nuevas."<cite style="color: rgba(255, 255, 255, 0.9);">— 2 Corintios 5:17</cite>'>
+            <div class="scripture" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.4);" data-en-html='"Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"<cite style="color: rgba(255, 255, 255, 0.9);">— 2 Corinthians 5:17</cite>' data-es-html='"De modo que si alguno está en Cristo, nueva criatura es; las cosas viejas pasaron; he aquí todas son hechas nuevas."<cite style="color: rgba(255, 255, 255, 0.9);">— 2 Corintios 5:17</cite>' data-it-html='"Se dunque uno è in Cristo, egli è una nuova creatura; le cose vecchie sono passate: ecco, sono diventate nuove."<cite style="color: rgba(255, 255, 255, 0.9);">— 2 Corinzi 5:17</cite>'>
                 "Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"
                 <cite style="color: rgba(255, 255, 255, 0.9);">— 2 Corinthians 5:17</cite>
             </div>
 
-            <p style="margin-top: 40px; line-height: 1.8;" data-en="Abide in the vine: Jesus. Through Him, the impossible was made possible. He can change your life, too!" data-es="Permanece en la vid: Jesús. A través de Él, lo imposible se hizo posible. ¡Él también puede cambiar tu vida!">Abide in the vine: Jesus. Through Him, the impossible was made possible. He can change your life, too!</p>
+            <p style="margin-top: 40px; line-height: 1.8;" data-en="Abide in the vine: Jesus. Through Him, the impossible was made possible. He can change your life, too!" data-es="Permanece en la vid: Jesús. A través de Él, lo imposible se hizo posible. ¡Él también puede cambiar tu vida!" data-it="Rimani nella vite: Gesù. Attraverso di Lui, l'impossibile è diventato possibile. Può cambiare anche la tua vita!">Abide in the vine: Jesus. Through Him, the impossible was made possible. He can change your life, too!</p>
 
-            <div class="scripture" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.4); margin-top: 20px;" data-en-html='"I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing."<cite style="color: rgba(255, 255, 255, 0.9);">— John 15:5</cite>' data-es-html='"Yo soy la vid, vosotros los pámpanos; el que permanece en mí, y yo en él, éste lleva mucho fruto; porque separados de mí nada podéis hacer."<cite style="color: rgba(255, 255, 255, 0.9);">— Juan 15:5</cite>'>
+            <div class="scripture" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.4); margin-top: 20px;" data-en-html='"I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing."<cite style="color: rgba(255, 255, 255, 0.9);">— John 15:5</cite>' data-es-html='"Yo soy la vid, vosotros los pámpanos; el que permanece en mí, y yo en él, éste lleva mucho fruto; porque separados de mí nada podéis hacer."<cite style="color: rgba(255, 255, 255, 0.9);">— Juan 15:5</cite>' data-it-html='"Io sono la vite, voi siete i tralci. Colui che dimora in me e nel quale io dimoro, porta molto frutto; perché senza di me non potete fare nulla."<cite style="color: rgba(255, 255, 255, 0.9);">— Giovanni 15:5</cite>'>
                 "I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing."
                 <cite style="color: rgba(255, 255, 255, 0.9);">— John 15:5</cite>
             </div>
         </div>
 
         <footer>
-            <p data-en="God bless!" data-es="¡Dios te bendiga!">God bless!</p>
-            <p style="margin-top: 10px;" data-en="Made by David Safin." data-es="Hecho por David Safin.">Made by David Safin.</p>
-            <p style="margin-top: 5px;" data-en-html='Questions? Contact me <a href="mailto:davidmsafin@gmail.com">here</a>.' data-es-html='¿Preguntas? Contáctame <a href="mailto:davidmsafin@gmail.com">aquí</a>.'>Questions? Contact me <a href="mailto:davidmsafin@gmail.com">here</a>.</p>
+            <p data-en="God bless!" data-es="¡Dios te bendiga!" data-it="Dio ti benedica!">God bless!</p>
+            <p style="margin-top: 10px;" data-en="Made by David Safin." data-es="Hecho por David Safin." data-it="Realizzato da David Safin.">Made by David Safin.</p>
+            <p style="margin-top: 5px;" data-en-html='Questions? Contact me <a href="mailto:davidmsafin@gmail.com">here</a>.' data-es-html='¿Preguntas? Contáctame <a href="mailto:davidmsafin@gmail.com">aquí</a>.' data-it-html='Domande? Contattami <a href="mailto:davidmsafin@gmail.com">qui</a>.'>Questions? Contact me <a href="mailto:davidmsafin@gmail.com">here</a>.</p>
         </footer>
     </div>
 
@@ -517,39 +546,39 @@
             observer.observe(section);
         });
 
-        // Language toggle
+        // Language selector
         let currentLang = 'en';
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'es' : 'en';
+        function setLanguage(lang) {
+            currentLang = lang;
             
-            // Update all elements with data-en and data-es attributes
-            document.querySelectorAll('[data-en][data-es]').forEach(el => {
-                el.textContent = el.getAttribute('data-' + currentLang);
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text) el.textContent = text;
             });
 
             // Update elements with HTML content
-            document.querySelectorAll('[data-en-html][data-es-html]').forEach(el => {
-                el.innerHTML = el.getAttribute('data-' + currentLang + '-html');
+            document.querySelectorAll('[data-' + lang + '-html]').forEach(el => {
+                const html = el.getAttribute('data-' + lang + '-html');
+                if (html) el.innerHTML = html;
             });
 
-            // Update toggle link text
-            const langText = document.getElementById('langText');
-            if (currentLang === 'es') {
-                langText.textContent = 'Click here for English';
-            } else {
-                langText.textContent = '¿Hablas español? Haz clic aquí';
-            }
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('btn-' + lang).classList.add('active');
 
             // Store preference
-            localStorage.setItem('preferredLanguage', currentLang);
+            localStorage.setItem('preferredLanguage', lang);
         }
 
         // Check for saved language preference on load
         window.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang === 'es') {
-                toggleLanguage();
+            if (savedLang && (savedLang === 'en' || savedLang === 'es' || savedLang === 'it')) {
+                setLanguage(savedLang);
             }
         });
     </script>
